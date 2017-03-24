@@ -3,14 +3,14 @@
 # and open the template in the editor.
 
 class Team(object):
-    global playerList
+    
     playerList = []
     
     def __init__(self, players):
         self.playerList = players
     
     def addPlayer(self, newPlayer):
-        playerList.append(newPlayer)
+        self.playerList.append(newPlayer)
     
     def getPlayers(self):
-        return playerList
+        return self.playerList
