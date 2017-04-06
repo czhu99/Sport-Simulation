@@ -14,3 +14,6 @@ class Team(object):
     
     def getPlayers(self):
         return self.playerList
+    
+    #def totalOff(self):
+        

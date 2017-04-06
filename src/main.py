@@ -7,9 +7,22 @@
 from team import Team
 from player import Player
 
-t1 = Team([Player(70, 40, 190, 180), Player(70, 40, 190, 180), Player(70, 40, 190, 180)])
-#t1.addPlayer(Player(70, 40, 190, 180))
+
+import numpy as np
+import pandas as pd
+
+t1 = Team([]) #VP
+t2 = Team([]) #NiP
+playerDF = pd.read_csv('Players.csv')
+
+for i in range(0, len(playerDF)):
+    if playerDF["Team"][i] == "VP":
+        t1.addPlayer(Player(playerDF["Name"][i], playerDF["Offense"][i], playerDF["Defense"][i]))
+    elif playerDF["Team"][i] == "NiP":
+        t2.addPlayer(Player(playerDF["Name"][i], playerDF["Offense"][i], playerDF["Defense"][i]))
+        
 pList = t1.getPlayers()
 
 for i in range(0, len(pList)):
-    print(pList[i].avgStat())
+    print(pList[i].getName(), pList[i].avgStat())
+    

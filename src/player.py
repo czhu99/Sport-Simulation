@@ -6,16 +6,19 @@
 # and open the template in the editor.
 
 class Player(object):
+    nm = ''
     off = 0
     defn = 0
-    ht = 0
-    wt = 0
+
     
-    def __init__(self, offense, defense, height, weight):
+    def __init__(self, name, offense, defense):
+        self.nm = name
         self.off = offense
         self.defn = defense
-        self.ht = height
-        self.wt = weight
+
         
     def avgStat(self):
         return (self.off + self.defn)/2
+
+    def getName(self):
+        return self.nm
