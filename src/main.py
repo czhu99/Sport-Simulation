@@ -7,22 +7,34 @@
 from team import Team
 from player import Player
 
-
 import numpy as np
 import pandas as pd
 
-t1 = Team([]) #VP
-t2 = Team([]) #NiP
+vp = Team("Virtus.Pro", []) #VP
+nip = Team("Ninjas in Pyjamas", []) #NiP
+sk = Team("SK Gaming",[])
+ast = Team("Astralis", [])
+
 playerDF = pd.read_csv('Players.csv')
 
 for i in range(0, len(playerDF)):
+    plyr = Player(playerDF["Name"][i], playerDF["Offense"][i], playerDF["Defense"][i])
+    
     if playerDF["Team"][i] == "VP":
-        t1.addPlayer(Player(playerDF["Name"][i], playerDF["Offense"][i], playerDF["Defense"][i]))
-    elif playerDF["Team"][i] == "NiP":
-        t2.addPlayer(Player(playerDF["Name"][i], playerDF["Offense"][i], playerDF["Defense"][i]))
+        vp.addPlayer(plyr)
+    if playerDF["Team"][i] == "NiP":
+        nip.addPlayer(plyr)
+    if playerDF["Team"][i] == "SK":
+        sk.addPlayer(plyr)
+    if playerDF["Team"][i] == "Astralis":
+        ast.addPlayer(plyr)
         
-pList = t1.getPlayers()
-
-for i in range(0, len(pList)):
-    print(pList[i].getName(), pList[i].avgStat())
+teams = [vp, nip, sk, ast]
+for i in range(0, len(teams)):
+    pList = teams[i].getPlayers()
+    if i > 0:
+        print("\n")
+    print(teams[i].getName() + ": ")    
+    for j in range(0, len(pList)):
+        print(pList[j].getName(), pList[j].avgStat())
     

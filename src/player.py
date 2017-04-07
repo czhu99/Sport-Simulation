@@ -15,10 +15,15 @@ class Player(object):
         self.nm = name
         self.off = offense
         self.defn = defense
-
-        
+      
     def avgStat(self):
         return (self.off + self.defn)/2
 
     def getName(self):
         return self.nm
+    
+    def getOff(self):
+        return self.off
+
+    def getDef(self):
+        return self.defn
