@@ -19,8 +19,17 @@ class Team(object):
     
     def getName(self):
         return self.nm
+        
     
     def avgOff(self):
+        avgOff = 0
         for i in range(0, len(self.playerList)):
-            avgOff += self.playerList[i].getOff
+            avgOff += self.playerList[i].getOff()
+        return avgOff/len(self.playerList)
+        
+    def avgDef(self):
+        avgDef = 0
+        for i in range(0, len(self.playerList)):
+            avgDef += self.playerList[i].getOff()
+        return avgDef/len(self.playerList)
         

@@ -19,14 +19,15 @@ playerDF = pd.read_csv('Players.csv')
 
 for i in range(0, len(playerDF)):
     plyr = Player(playerDF["Name"][i], playerDF["Offense"][i], playerDF["Defense"][i])
+    teamName = playerDF["Team"][i]
     
-    if playerDF["Team"][i] == "VP":
+    if teamName == "VP":
         vp.addPlayer(plyr)
-    if playerDF["Team"][i] == "NiP":
+    if teamName == "NiP":
         nip.addPlayer(plyr)
-    if playerDF["Team"][i] == "SK":
+    if teamName == "SK":
         sk.addPlayer(plyr)
-    if playerDF["Team"][i] == "Astralis":
+    if teamName == "Astralis":
         ast.addPlayer(plyr)
         
 teams = [vp, nip, sk, ast]
@@ -37,4 +38,5 @@ for i in range(0, len(teams)):
     print(teams[i].getName() + ": ")    
     for j in range(0, len(pList)):
         print(pList[j].getName(), pList[j].avgStat())
+
     
