@@ -38,5 +38,7 @@ for i in range(0, len(teams)):
     print(teams[i].getName() + ": ")    
     for j in range(0, len(pList)):
         print(pList[j].getName(), pList[j].avgStat())
+        
+
 
     

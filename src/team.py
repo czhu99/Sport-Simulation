@@ -33,3 +33,20 @@ class Team(object):
             avgDef += self.playerList[i].getOff()
         return avgDef/len(self.playerList)
         
+    def playTeam(self, t2):
+        offChance = 0
+        defChance = 0
+        off1 = self.avgOff()
+        def1 = self.avgDef()
+        off2 = t2.avgOff()
+        def2 = t2.avgDef()
+        
+        if off1 >= def2:
+            if (off1 - def2) > 50:
+                offChance = .75
+            elif (off1 - def2) < 50 and (off1 - def2) > 25:
+                offChance = .6
+            elif (off1 - def2) < 25 and (off1 - def2) > 0:
+                offChance = .55      
+            elif off1 == def2:
+                offChance = .5
