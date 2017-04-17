@@ -39,6 +39,6 @@ for i in range(0, len(teams)):
     for j in range(0, len(pList)):
         print(pList[j].getName(), pList[j].avgStat())
         
-
+print(vp.playTeam(nip))
 
     
