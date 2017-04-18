@@ -2,6 +2,7 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
+import random
 class Team(object):
     
     playerList = []
@@ -36,6 +37,7 @@ class Team(object):
     def playTeam(self, t2):
         offChance = 0
         defChance = 0
+        winChance = 0
         off1 = self.avgOff()
         def1 = self.avgDef()
         off2 = t2.avgOff()
@@ -65,7 +67,17 @@ class Team(object):
         if (off1 - def2) < 0:
             defChance = -1 * defChance
         
-        return (offChance + defChance)/2
+        winChance = (offChance + defChance)/2.0
+        if winChance < 0:
+            winChance += 1.0
+            
+        num = random.randint(0, 100)
+        if num/100 <= winChance:
+            return self
+        else:
+            return t2
+        
+        return self
                 
         
         

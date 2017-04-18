@@ -9,8 +9,7 @@ class Player(object):
     nm = ''
     off = 0
     defn = 0
-
-    
+   
     def __init__(self, name, offense, defense):
         self.nm = name
         self.off = offense

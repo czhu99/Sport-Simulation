@@ -10,10 +10,14 @@ from player import Player
 import numpy as np
 import pandas as pd
 
-vp = Team("Virtus.Pro", []) #VP
-nip = Team("Ninjas in Pyjamas", []) #NiP
+vp = Team("Virtus.Pro", []) 
+nip = Team("Ninjas in Pyjamas", []) 
 sk = Team("SK Gaming",[])
 ast = Team("Astralis", [])
+faze = Team("FaZe Clan", [])
+navi = Team("Natus Vincere", [])
+fnc = Team("Fnatic", [])
+north = Team("North", [])
 
 playerDF = pd.read_csv('Players.csv')
 
@@ -29,8 +33,16 @@ for i in range(0, len(playerDF)):
         sk.addPlayer(plyr)
     if teamName == "Astralis":
         ast.addPlayer(plyr)
+    if teamName == "FaZe":
+        faze.addPlayer(plyr)
+    if teamName == "Na'Vi":
+        navi.addPlayer(plyr)
+    if teamName == "Fnatic":
+        fnc.addPlayer(plyr)
+    if teamName == "North":
+        north.addPlayer(plyr)
         
-teams = [vp, nip, sk, ast]
+teams = [vp, nip, sk, ast, faze, navi, fnc, north]
 for i in range(0, len(teams)):
     pList = teams[i].getPlayers()
     if i > 0:
@@ -39,6 +51,7 @@ for i in range(0, len(teams)):
     for j in range(0, len(pList)):
         print(pList[j].getName(), pList[j].avgStat())
         
-print(vp.playTeam(nip))
+print(vp.playTeam(nip).getName())
+print(nip.playTeam(vp).getName())
 
     
