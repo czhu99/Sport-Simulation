@@ -31,7 +31,7 @@ class Team(object):
     def avgDef(self):
         avgDef = 0
         for i in range(0, len(self.playerList)):
-            avgDef += self.playerList[i].getOff()
+            avgDef += self.playerList[i].getDef()
         return avgDef/len(self.playerList)
         
     def playTeam(self, t2):
@@ -45,11 +45,13 @@ class Team(object):
     
         diff1 = abs(off1 - def2)
         if diff1 > 50:
-            offChance = .75
+            offChance = .95
         elif diff1 < 50 and diff1 > 25:
+            offChance = .8
+        elif diff1 < 25 and diff1 > 15:
+            offChance = .7      
+        elif diff1 < 15 and diff1 > 0:
             offChance = .6
-        elif diff1 < 25 and diff1 > 0:
-            offChance = .55      
         elif diff1 == 0:
             offChance = .5
         if (off1 - def2) < 0:
@@ -57,11 +59,13 @@ class Team(object):
          
         diff2 = abs(def1 - off2)
         if diff2 > 50:
-            defChance = .75
+            defChance = .95
         elif diff2 < 50 and diff1 > 25:
+            defChance = .8
+        elif diff2 < 25 and diff1 > 15:
+            defChance = .7
+        elif diff2 < 15 and diff1 > 0:
             defChance = .6
-        elif diff2 < 25 and diff1 > 0:
-            defChance = .55      
         elif diff2 == 0:
             defChance = .5
         if (off1 - def2) < 0:
@@ -70,7 +74,8 @@ class Team(object):
         winChance = (offChance + defChance)/2.0
         if winChance < 0:
             winChance += 1.0
-            
+        
+        
         num = random.randint(0, 100)
         if num/100 <= winChance:
             return self
@@ -78,6 +83,4 @@ class Team(object):
             return t2
         
         return self
-                
-        
         

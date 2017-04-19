@@ -21,7 +21,7 @@ north = Team("North", [])
 
 playerDF = pd.read_csv('Players.csv')
 
-for i in range(0, len(playerDF)):
+for i in range(0, len(playerDF)): #loops through entire data set and adds each player to their team
     plyr = Player(playerDF["Name"][i], playerDF["Offense"][i], playerDF["Defense"][i])
     teamName = playerDF["Team"][i]
     
@@ -50,8 +50,10 @@ for i in range(0, len(teams)):
     print(teams[i].getName() + ": ")    
     for j in range(0, len(pList)):
         print(pList[j].getName(), pList[j].avgStat())
+    print("\n")
         
-print(vp.playTeam(nip).getName())
-print(nip.playTeam(vp).getName())
+
+#bracket = teams
+#while len(bracket) > 1:
 
     
