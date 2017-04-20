@@ -7,6 +7,7 @@
 from team import Team
 from player import Player
 
+from random import shuffle
 import numpy as np
 import pandas as pd
 
@@ -43,7 +44,7 @@ for i in range(0, len(playerDF)): #loops through entire data set and adds each p
         north.addPlayer(plyr)
         
 teams = [vp, nip, sk, ast, faze, navi, fnc, north]
-for i in range(0, len(teams)):
+'''for i in range(0, len(teams)):
     pList = teams[i].getPlayers()
     if i > 0:
         print("\n")
@@ -51,9 +52,20 @@ for i in range(0, len(teams)):
     for j in range(0, len(pList)):
         print(pList[j].getName(), pList[j].avgStat())
     print("\n")
+'''     
+for j in range(0, 10000):
+    bracket = teams
+    tempbrack = []
+    shuffle(bracket)
+    while(len(bracket) > 1):
+        for i in range(0, len(bracket)):
+            if i%2 == 0:
+                tempbrack.append(bracket[i].playTeam(bracket[i+1]))
+        bracket = tempbrack
+        tempbrack = []
         
+    bracket[0].addWin()
 
-#bracket = teams
-#while len(bracket) > 1:
+for i in range(0, len(teams)):
+    print(teams[i].getName(), teams[i].getWins())      
 
-    

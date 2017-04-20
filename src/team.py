@@ -7,6 +7,7 @@ class Team(object):
     
     playerList = []
     nm = ''
+    wins = 0
     
     def __init__(self, name, players):
         self.playerList = players
@@ -21,7 +22,12 @@ class Team(object):
     def getName(self):
         return self.nm
         
+    def addWin(self):
+        self.wins += 1
     
+    def getWins(self):
+        return self.wins
+        
     def avgOff(self):
         avgOff = 0
         for i in range(0, len(self.playerList)):
