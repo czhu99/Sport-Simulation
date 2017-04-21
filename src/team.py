@@ -66,15 +66,15 @@ class Team(object):
         diff2 = abs(def1 - off2)
         if diff2 > 50:
             defChance = .95
-        elif diff2 < 50 and diff1 > 25:
+        elif diff2 < 50 and diff2 > 25:
             defChance = .8
-        elif diff2 < 25 and diff1 > 15:
+        elif diff2 < 25 and diff2 > 15:
             defChance = .7
-        elif diff2 < 15 and diff1 > 0:
+        elif diff2 < 15 and diff2 > 0:
             defChance = .6
         elif diff2 == 0:
             defChance = .5
-        if (off1 - def2) < 0:
+        if (def1 - off2) < 0:
             defChance = -1 * defChance
         
         winChance = (offChance + defChance)/2.0
