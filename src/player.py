@@ -5,12 +5,12 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-class Player(object):
+class Player(object): #basic Class for a Player object - has name, offense, and defense value
     nm = ''
     off = 0
     defn = 0
    
-    def __init__(self, name, offense, defense):
+    def __init__(self, name, offense, defense): #constructor
         self.nm = name
         self.off = offense
         self.defn = defense

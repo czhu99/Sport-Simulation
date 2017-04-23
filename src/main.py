@@ -11,6 +11,7 @@ from random import shuffle
 import numpy as np
 import pandas as pd
 
+#creates 8 Team objects 
 vp = Team("Virtus.Pro", []) 
 nip = Team("Ninjas in Pyjamas", []) 
 sk = Team("SK Gaming",[])
@@ -22,7 +23,7 @@ north = Team("North", [])
 
 playerDF = pd.read_csv('Players.csv')
 
-for i in range(0, len(playerDF)): #loops through entire data set and adds each player to their team to their team
+for i in range(0, len(playerDF)): #loops through entire data set and adds each player to their team to their team based on name
     plyr = Player(playerDF["Name"][i], playerDF["Offense"][i], playerDF["Defense"][i])
     teamName = playerDF["Team"][i]
     
@@ -46,6 +47,7 @@ for i in range(0, len(playerDF)): #loops through entire data set and adds each p
 teams = [vp, nip, sk, ast, faze, navi, fnc, north]
 
 print("Teams and Average Player Stats: ")
+#loops through each Team in teams and each player in each team, printing the player's average stat
 for i in range(0, len(teams)):
     pList = teams[i].getPlayers()
     if i > 0:
@@ -55,6 +57,7 @@ for i in range(0, len(teams)):
         print(pList[j].getName(), pList[j].avgStat())
 print("\n")
 
+#runs 10,000 trials of 8 team single-elimination tournament. Final winner has win added to total wins
 print("Tournament Wins Out of 10,000 Played: ")     
 for j in range(0, 10000):
     bracket = teams
